@@ -10,19 +10,30 @@ const SearchParams = () => {
     const [imageContent, setImageContent] = useState("");
 
     useEffect(() =>{
+    },[])
 
-    })
-
-    async function requestCoin(params) {
-        const res = await fetch()
+    async function requestName(params) {
+        const res = await fetch('https://api.quotable.io/random')
+        const data = await res.json()
+        console.log(data);
+        
+        setPlaylistName(data.content)
     }
+
+    /*async function requestImage(){
+        const res = await fetch('https://thatcopy.pw/catapi/rest/')
+        const data = await res.json()
+        console.log(data);
+
+        setImageContent(data.url)
+    }*/
 
     return (
         <div className="search-params">
-            <form>
-                <label htmlFor="coin">
+            <form onSubmit={e => {e.preventDefault();requestName();requestImage()}}>
+                <label htmlFor="name">
                     Playlist Name
-                    <input id="coin" value={playlistName} onChange={e => setPlaylistName(e.target.value)} placeholder="funny playlist name"/>
+                    <input id="name" value={""} onChange={e => setPlaylistName(e.target.value)} placeholder="funny playlist name"/>
                 </label>
                 <label>
                     Image Type
@@ -37,7 +48,9 @@ const SearchParams = () => {
                     </select>
                 </label>
                 <button>Submit</button>
-            </form>        
+            </form>
+            <img src={imageContent}/>        
+            <p>{playlistName}</p>
         </div>
     );
 }

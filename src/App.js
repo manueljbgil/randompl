@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "@babel/polyfill";
 import Coin from './Coin';
 import SearchParams from './SearchParams';
 
