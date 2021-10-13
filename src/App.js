@@ -6,8 +6,8 @@ import SearchParams from './SearchParams';
 
 const App = () => {
     return (
-        <div>
-            <h1>Playlist Generator</h1>
+        <div className="container">
+            <h1 className="title">Playlist Generator</h1>
             <SearchParams />
             {/*<Coin name="bitcoin" currency="Eur" />*/}
         </div>
